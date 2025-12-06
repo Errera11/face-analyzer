@@ -1,0 +1,16 @@
+---
+import Base from "@/templates/Base.astro";
+// import { AppConfig } from "@/utils/AppConfig";
+import FileUpload from "@/partials/FileUpload.astro";
+
+const head = {
+  title: "Main",
+  description: "",
+};
+---
+
+<section class="h-full">
+  <Base head={{ ...head }}>
+    <FileUpload />
+  </Base>
+</section>

@@ -1,0 +1,111 @@
+---
+import UploadIcon from "@/shared/icons/UploadIcon.astro";
+import { FileUploaderDropContainer } from "carbon-components-svelte";
+import LoaderIcon from "@/shared/icons/LoaderIcon.astro";
+---
+
+<div class="h-full w-full flex items-center justify-center bg-gray-400">
+  <div
+    class="w-1/3 flex items-center justify-center flex-col border-solid
+     border-gray-700 shadow-md sm:rounded-lg border-8 rounded-md
+     upload-box
+     relative
+     "
+  >
+    <div class="loader-icon">
+      <LoaderIcon />
+    </div>
+    <div class="w-7 h-7 icon">
+      <UploadIcon />
+    </div>
+    <FileUploaderDropContainer
+      labelText="Drag and drop vidoes here or click to upload"
+    />
+  </div>
+</div>
+
+<script>
+  import { getProcessedVideo } from "@/api";
+
+  const input = document.querySelector(".bx--file-input");
+  const loader = document.querySelector(".loader-icon");
+
+  function setLoadingState() {
+    loader?.setAttribute("style", "display: flex;");
+  }
+
+  function resetLoadingState() {
+    loader?.setAttribute("style", "display: none;");
+  }
+
+  function inputChange(e: Event) {
+    const target = e.target as HTMLInputElement;
+    const file = target.files?.[0];
+
+    if (file) {
+      setLoadingState();
+      const params = {
+        video_file: file,
+      };
+      getProcessedVideo(params).finally(resetLoadingState);
+    }
+  }
+
+  input?.addEventListener("change", inputChange);
+</script>
+
+<style is:global>
+  .bx--file-browse-btn {
+    max-width: unset;
+  }
+
+  .bx--file-browse-btn:hover {
+    outline: none;
+    text-decoration: none;
+  }
+
+  .bx--file__drop-container,
+  .bx--file__drop-container:hover {
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: white;
+    padding: 0;
+  }
+
+  .icon > svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .upload-box {
+    padding: 12px 8px;
+    overflow: hidden;
+  }
+
+  .upload-box:hover {
+    border: solid 2px darkgray;
+  }
+
+  .loader-icon {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    display: none;
+  }
+
+  .loader-icon > img {
+    z-index: 2;
+  }
+
+  .loader-icon:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: slategray;
+    opacity: 0.4;
+  }
+</style>

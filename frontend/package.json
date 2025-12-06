@@ -1,0 +1,62 @@
+{
+  "name": "astro-boilerplate",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "clean": "rimraf dist",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx,.astro .",
+    "build-types": "tsc --noEmit --pretty",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@astrojs/rss": "^0.2.2",
+    "@astrojs/sitemap": "^0.1.2",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^17.8.1",
+    "@jridgewell/sourcemap-codec": "^1.4.15",
+    "@types/react": "^18.2.42",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "astro": "^5.16.3",
+    "astro-eslint-parser": "^0.16.0",
+    "astro-robots-txt": "^0.3.12",
+    "eslint": "^8.55.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-tailwindcss": "^3.13.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^12.5.0",
+    "path-browserify": "^1.0.1",
+    "prettier": "^2.6.2",
+    "prettier-plugin-astro": "0.1.0-next.5",
+    "rimraf": "^5.0.5"
+  },
+  "dependencies": {
+    "@astrojs/svelte": "^7.2.2",
+    "@sveltejs/vite-plugin-svelte": "^6.2.1",
+    "@tailwindcss/vite": "^4.1.17",
+    "@typescript-eslint/utils": "^8.48.1",
+    "carbon-components-svelte": "^0.94.1",
+    "date-fns": "^2.30.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "svelte": "^5.45.5",
+    "tailwindcss": "^4.1.17",
+    "typescript": "^5.9.3"
+  },
+  "volta": {
+    "node": "16.15.1"
+  }
+}
